@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RideSri | Tourist Bike Rental</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <a class="logo" href="#" data-page="home">🏍 RideSri <small>Bike Rental for Tourists</small></a>
+    <button id="menu">☰</button>
+    <nav id="nav">
+        <a href="#" data-page="home">Home</a>
+        <a href="#" data-page="bikes">Bikes</a>
+        <a href="#" data-page="owner">For Owners</a>
+        <a href="#" data-page="admin">Admin</a>
+        <a href="#" data-page="login">Login</a>
+        <a class="cta" href="#" data-page="register">Register</a>
+    </nav>
+</header>
+<main>
+<section id="home" class="page active">
+    <div class="hero">
+        <div>
+            <small class="eyebrow">YOUR SRI LANKAN ADVENTURE STARTS HERE</small>
+            <h1>Explore Sri Lanka<br><em>One Ride at a Time</em></h1>
+            <p>Rent the perfect bike and discover breathtaking places with freedom and comfort.</p>
+            <button class="primary" data-page="bikes">Explore Bikes →</button>
+        </div>
+        <div class="hero-img"></div>
+    </div>
+    <form id="homeSearch" class="search">
+        <label>Location
+            <select id="homeLocation">
+                <option value="">Any location</option>
+                <option>Colombo</option>
+                <option>Galle</option>
+                <option>Matara</option>
+                <option>Kandy</option>
+                <option>Ella</option>
+            </select>
+        </label>
+        <label>Pickup date<input type="date" id="homeDate">
+        </label>
+        <label>Bike type
+            <select id="homeType">
+                <option value="">All types</option>
+                <option>Scooter</option>
+                <option>Standard</option>
+                <option>Adventure</option>
+                <option>Off-road</option>
+            </select>
+        </label>
+        <button class="primary">Search Bikes</button>
+    </form>
+    <div class="heading">
+        <div>
+            <small class="eyebrow">HANDPICKED FOR YOU</small>
+            <h2>Featured Bikes</h2>
+            <p>Popular choices for your next adventure.</p>
+        </div>
+        <button class="outline" data-page="bikes">View all →</button>
+    </div>
+    <div id="featured" class="grid"></div>
+    <div class="benefits">
+        <article>
+            🛡️ <b>Safe & Secure</b>
+            <p>Verified listings and clear rental details.</p>
+        </article>
+        <article>
+            📍 <b>Explore Anywhere</b>
+            <p>Find rides around Sri Lanka.</p>
+        </article>
+        <article>
+            🎧 <b>Helpful Support</b>
+            <p>Help throughout your booking journey.</p>
+        </article>
+    </div>
+</section>
+<section id="register" class="page">
+    <div class="auth">
+        <div class="auth-image">
+            <h2>Your journey<br>starts here.</h2>
+            <p>Discover Sri Lanka on two wheels.</p>
+        </div>
+        <form id="registerForm" class="panel">
+            <small class="eyebrow">CREATE AN ACCOUNT</small>
+            <h1>Join RideSri</h1>
+            <p>Create an account to continue with RideSri.</p>
+
+<label>Account Type
+    <select id="regRole" required>
+        <option value="tourist">Tourist</option>
+        <option value="owner">Vehicle Owner</option>
+    </select>
+</label>
+            <label>Full name
+                <input id="regName" required placeholder="Your full name">
+            </label>
+            <label>Email address
+                <input id="regEmail" type="email" required placeholder="you@example.com">
+            </label>
+            <label>Password
+                <input id="regPass" type="password" minlength="6" required placeholder="At least 6 characters">
+            </label>
+            <label>Confirm password
+                <input id="regConfirm" type="password" required placeholder="Re-enter password">
+            </label>
+            <button class="primary">Create Account</button>
+            <p class="foot">Already have an account?
+                 <a href="#" data-page="login">Login</a></p></form></div></section>
+<section id="login" class="page"><div class="auth"><div class="auth-image"><h2>Adventure is<br>just a ride away.</h2><p>Sign in and continue your journey with RideSri.</p></div><form id="loginForm" class="panel"><small class="eyebrow">WELCOME BACK</small><h1>Login</h1><p>Enter your details to continue.</p><label>Email address<input id="loginEmail" type="email" required placeholder="you@example.com"></label><label>Password<input id="loginPass" type="password" required placeholder="Your password"></label><button class="primary">Login →</button><p class="foot">New to RideSri? <a href="#" data-page="register">Create an account</a></p><small>Demo only: register an account first.</small></form></div></section>
+<section id="bikes" class="page"><div class="banner"><small class="eyebrow">FIND YOUR RIDE</small><h1>Available Bikes</h1><p>Choose a bike for your Sri Lankan adventure.</p></div><div class="filters"><label>Search<input id="search" placeholder="Model or location"></label><label>Location<select id="location"><option value="">All locations</option><option>Colombo</option><option>Galle</option><option>Matara</option><option>Kandy</option><option>Ella</option></select></label><label>Type<select id="type"><option value="">All types</option><option>Scooter</option><option>Standard</option><option>Adventure</option><option>Off-road</option></select></label><label>Max price<select id="maxPrice"><option value="10000">Any price</option><option value="2500">LKR 2,500</option><option value="3500">LKR 3,500</option><option value="5000">LKR 5,000</option></select></label></div><p id="count"></p><div id="allBikes" class="grid"></div></section>
+<section id="details" class="page"><div id="detailsContent"></div></section>
+<section id="booking" class="page"><div class="banner"><small class="eyebrow">YOUR RIDE</small><h1>Booking Details</h1><p>Choose rental dates and review the total.</p></div><div class="columns"><form id="bookingForm" class="panel"><h2>Rental dates</h2><label>Pickup date<input type="date" id="pickup" required></label><label>Return date<input type="date" id="return" required></label><label>Pickup location<select id="bookLocation"><option>Colombo</option><option>Galle</option><option>Matara</option><option>Kandy</option><option>Ella</option></select></label><div class="total"><span>Duration</span><b id="duration">1 day</b><span>Total price</span><b id="total">LKR 0</b></div><button class="primary">Continue to Payment →</button></form><aside id="bookSummary" class="panel"></aside></div></section>
+<section id="payment" class="page"><div class="banner"><small class="eyebrow">SECURE CHECKOUT</small><h1>Payment</h1><p>Choose a payment method.</p></div><div class="columns"><form id="paymentForm" class="panel"><h2>Payment method</h2><label class="option"><input type="radio" name="method" value="Card" checked> 💳 Credit / Debit Card</label><label class="option"><input type="radio" name="method" value="PayPal"> 🌐 PayPal</label><label class="option"><input type="radio" name="method" value="Bank transfer"> 🏦 Bank transfer</label><div class="total"><span>Amount to pay</span><b id="payAmount">LKR 0</b></div><small>Demo only: no real payment is taken.</small><button class="primary">Pay & Confirm Booking</button></form><aside id="paySummary" class="panel"></aside></div></section>
+<section id="confirmation" class="page"><div class="confirm panel"><div class="success">✓</div><small class="eyebrow">BOOKING COMPLETE</small><h1>Booking Confirmed!</h1><p>Your demo booking has been saved.</p><div id="receipt"></div><button class="primary" data-page="tourist">View My Bookings</button> <button class="outline" id="print">Print receipt</button></div></section>
+<section id="tourist" class="page"><div class="dashboard"><aside class="side"><h3 id="touristName">Tourist</h3><p>Registered Tourist</p><a class="selected" href="#" data-page="tourist">Dashboard</a><a href="#myBookings">My Bookings</a><a href="#" data-page="bikes">Browse Bikes</a><a href="#" data-page="home">Home</a></aside><div class="dash-main"><small class="eyebrow">YOUR ACCOUNT</small><h1>Tourist Dashboard</h1><div class="stats"><article>Total bookings<strong id="tTotal">0</strong></article><article>Upcoming<strong id="tUpcoming">0</strong></article><article>Confirmed<strong id="tConfirmed">0</strong></article></div><div class="heading"><h2 id="myBookings">My Bookings</h2><button class="primary" data-page="bikes">+ Book a bike</button></div><div id="touristBookings"></div></div></div></section>
+<section id="owner" class="page"><div class="dashboard"><aside class="side"><h3>Vehicle Owner</h3><p>Owner workspace</p><a class="selected" href="#" data-page="owner">Dashboard</a><a href="#ownerBikes">Manage Bikes</a><a href="#requests">Rental Requests</a><a href="#" data-page="home">Home</a></aside><div class="dash-main"><small class="eyebrow">OWNER WORKSPACE</small><h1>Vehicle Owner Dashboard</h1><div class="stats"><article>Total bikes<strong id="ownerCount">6</strong></article><article>Active listings<strong id="ownerActive">6</strong></article><article>Rental requests<strong id="requestCount">0</strong></article></div><div class="heading"><h2 id="ownerBikes">Manage Bikes</h2><button class="primary" id="addBike">+ Add bike</button></div><div id="ownerList"></div><div class="heading"><h2 id="requests">Rental Requests</h2></div><div id="ownerRequests"></div></div></div></section>
+<section id="admin" class="page"><div class="dashboard"><aside class="side"><h3>Administrator</h3><p>System management</p><a class="selected" href="#" data-page="admin">Dashboard</a><a href="#users">Manage Users</a><a href="#adminBikes">Manage Bikes</a><a href="#adminBookingList">Manage Bookings</a><a href="#" data-page="home">Home</a></aside><div class="dash-main"><small class="eyebrow">SYSTEM OVERVIEW</small><h1>Admin Dashboard</h1><div class="stats"><article id="users">Registered tourists<strong id="userCount">0</strong></article><article id="adminBikes">Bike listings<strong id="adminBikeCount">6</strong></article><article id="adminBookings">Total bookings<strong id="adminBookingCount">0</strong></article></div><h2>Bike listings</h2><div id="adminBikeList"></div><h2>Recent bookings</h2><div id="adminBookingList"></div><h2>Registered Users</h2>
+<div id="adminUserList"></div>
+
+<h2>Payment Details</h2>
+<div id="adminPaymentList"></div></div></div></section>
+</main><footer><b>🏍 RideSri</b><span>Explore Sri Lanka, one ride at a time.</span><span>Student project demo · 2026</span></footer><div id="toast"></div><script src="{{ url_for('static', filename='script.js') }}"></script></body></html>
